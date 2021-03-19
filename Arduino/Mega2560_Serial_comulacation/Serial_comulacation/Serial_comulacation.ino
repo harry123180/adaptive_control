@@ -7,10 +7,8 @@ Serial.begin(9600);
 
 void loop() {
   t++;
-  
-  // put your main code here, to run repeatedly:
   value = sin(t);
 Serial.println(value);
 if(t==360)t=0;
-delay(1);
+//delay(1);
 }
