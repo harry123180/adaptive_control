@@ -26,7 +26,7 @@ duration = pulseIn(echo,HIGH);
 cm = (duration /2)/74;
 if(cm >10)
 {
-left_wheel.writeMicroseconds(1340);//停車
+left_wheel.writeMicroseconds(1340);//前進
 righ_wheel.writeMicroseconds(1740);
 }
 else if(cm<10){
@@ -35,7 +35,4 @@ righ_wheel.writeMicroseconds(1528);
 }
 
 Serial.println(cm);
-
-
-
 }
