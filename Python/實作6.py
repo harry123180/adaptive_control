@@ -27,8 +27,10 @@ def compute_accuracy(v_xs, v_ys):
 # define placeholder for inputs to network
 xs = tf.placeholder(tf.float32, [None, 784]) # 28x28
 print(type(xs))
+
 npxs = np.array(xs)
 print(type(npxs))
+print(np.shape(npxs))
 ys = tf.placeholder(tf.float32, [None, 10])
 
 # add output layer

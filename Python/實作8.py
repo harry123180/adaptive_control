@@ -2,6 +2,7 @@ from __future__ import print_function
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 import numpy as np
+import openpyxl
 # number 1 to 10 data
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 #print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
@@ -26,9 +27,17 @@ def compute_accuracy(v_xs, v_ys):
 
 # define placeholder for inputs to network
 xs = tf.placeholder(tf.float32, [None, 784]) # 28x28
-print(type(xs))
-npxs = np.array(xs)
-print(type(npxs))
+
+# 建立 Excel 活頁簿
+wb = openpyxl.Workbook()
+
+# 取得作用中的工作表
+ws = wb.active
+
+# 設定工作表名稱
+ws.title = "NumPy_Arr"
+
+
 ys = tf.placeholder(tf.float32, [None, 10])
 
 # add output layer
@@ -48,7 +57,14 @@ if int((tf.__version__).split('.')[1]) < 12 and int((tf.__version__).split('.')[
 else:
     init = tf.global_variables_initializer()
 sess.run(init)
+# 將 NumPy 陣列寫入 Excel 工作表
+batch_xs, batch_ys = mnist.train.next_batch(100)
+npxs = np.array(batch_xs)
+for x in npxs:
+    ws.append(x.tolist())
 
+# 儲存 Excel 活頁簿至檔案
+wb.save(filename='test.xlsx')
 for i in range(1000):
     batch_xs, batch_ys = mnist.train.next_batch(100)
     sess.run(train_step, feed_dict={xs: batch_xs, ys: batch_ys})
