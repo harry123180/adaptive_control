@@ -12,6 +12,7 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="adp.vi" Type="VI" URL="../adp.vi"/>
 		<Item Name="Generation_singnal.vi" Type="VI" URL="../Generation_singnal.vi"/>
+		<Item Name="自適應算法架構.vi" Type="VI" URL="../自適應算法架構.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
