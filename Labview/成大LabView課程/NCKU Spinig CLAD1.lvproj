@@ -13,10 +13,12 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="array.vi" Type="VI" URL="../array.vi"/>
+		<Item Name="binary.vi" Type="VI" URL="../binary.vi"/>
 		<Item Name="case.vi" Type="VI" URL="../case.vi"/>
 		<Item Name="cluster.vi" Type="VI" URL="../cluster.vi"/>
 		<Item Name="Control 1.ctl" Type="VI" URL="../Control 1.ctl"/>
-		<Item Name="DAQ_daqmx.vi" Type="VI" URL="../DAQ_daqmx.vi"/>
+		<Item Name="DAQ_daqmxorg.vi" Type="VI" URL="../DAQ_daqmxorg.vi"/>
+		<Item Name="DAQ_mx_queue.vi" Type="VI" URL="../DAQ_mx_queue.vi"/>
 		<Item Name="event.vi" Type="VI" URL="../event.vi"/>
 		<Item Name="fgv.vi" Type="VI" URL="../fgv.vi"/>
 		<Item Name="for loop.vi" Type="VI" URL="../for loop.vi"/>
@@ -24,10 +26,12 @@
 		<Item Name="lesson1.vi" Type="VI" URL="../lesson1.vi"/>
 		<Item Name="logbtn.vi" Type="VI" URL="../logbtn.vi"/>
 		<Item Name="main_subVi.vi" Type="VI" URL="../main_subVi.vi"/>
+		<Item Name="node.vi" Type="VI" URL="../node.vi"/>
 		<Item Name="queue.vi" Type="VI" URL="../queue.vi"/>
 		<Item Name="raceCondition.vi" Type="VI" URL="../raceCondition.vi"/>
 		<Item Name="stateMachine.vi" Type="VI" URL="../stateMachine.vi"/>
 		<Item Name="string.vi" Type="VI" URL="../string.vi"/>
+		<Item Name="Untitled 2 (SubVI).vi" Type="VI" URL="../Untitled 2 (SubVI).vi"/>
 		<Item Name="Untitled Library 1.lvlib" Type="Library" URL="../Untitled Library 1.lvlib"/>
 		<Item Name="variable.vi" Type="VI" URL="../variable.vi"/>
 		<Item Name="while loop.vi" Type="VI" URL="../while loop.vi"/>
