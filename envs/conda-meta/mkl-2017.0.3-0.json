@@ -1,0 +1,226 @@
+{
+  "arch": "x86_64",
+  "build": "0",
+  "build_number": 0,
+  "channel": "https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64",
+  "constrains": [],
+  "date": "2017-06-27",
+  "depends": [],
+  "extracted_package_dir": "C:\\Users\\user\\anaconda3\\pkgs\\mkl-2017.0.3-0",
+  "features": "",
+  "files": [
+    "Library/bin/1033/mkl_msg.dll",
+    "Library/bin/cilkrts20.dll",
+    "Library/bin/ifdlg100.dll",
+    "Library/bin/libchkp.dll",
+    "Library/bin/libicaf.dll",
+    "Library/bin/libifcoremdd.dll",
+    "Library/bin/libifcoremd.dll",
+    "Library/bin/libifcorertd.dll",
+    "Library/bin/libifcorert.dll",
+    "Library/bin/libifportmd.dll",
+    "Library/bin/libimalloc.dll",
+    "Library/bin/libiomp5md.dll",
+    "Library/bin/libiompstubs5md.dll",
+    "Library/bin/libmmdd.dll",
+    "Library/bin/libmmd.dll",
+    "Library/bin/libmpx.dll",
+    "Library/bin/liboffload.dll",
+    "Library/bin/mkl_avx2.dll",
+    "Library/bin/mkl_avx512.dll",
+    "Library/bin/mkl_avx512_mic.dll",
+    "Library/bin/mkl_avx.dll",
+    "Library/bin/mkl_core.dll",
+    "Library/bin/mkl_def.dll",
+    "Library/bin/mkl_intel_thread.dll",
+    "Library/bin/mkl_mc3.dll",
+    "Library/bin/mkl_mc.dll",
+    "Library/bin/mkl_rt.dll",
+    "Library/bin/mkl_sequential.dll",
+    "Library/bin/mkl_tbb_thread.dll",
+    "Library/bin/mkl_vml_avx2.dll",
+    "Library/bin/mkl_vml_avx512.dll",
+    "Library/bin/mkl_vml_avx512_mic.dll",
+    "Library/bin/mkl_vml_avx.dll",
+    "Library/bin/mkl_vml_cmpt.dll",
+    "Library/bin/mkl_vml_def.dll",
+    "Library/bin/mkl_vml_mc2.dll",
+    "Library/bin/mkl_vml_mc3.dll",
+    "Library/bin/mkl_vml_mc.dll",
+    ".nonadmin"
+  ],
+  "fn": "mkl-2017.0.3-0.tar.bz2",
+  "license": "proprietary - Intel",
+  "license_family": "Proprietary",
+  "link": {
+    "source": "C:\\Users\\user\\anaconda3\\pkgs\\mkl-2017.0.3-0",
+    "type": 1
+  },
+  "md5": "1e58b727d7823e41f43ff3a391b63d82",
+  "name": "mkl",
+  "package_tarball_full_path": "C:\\Users\\user\\anaconda3\\pkgs\\mkl-2017.0.3-0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "Library/bin/1033/mkl_msg.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/cilkrts20.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/ifdlg100.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libchkp.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libicaf.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libifcoremdd.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libifcoremd.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libifcorertd.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libifcorert.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libifportmd.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libimalloc.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libiomp5md.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libiompstubs5md.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libmmdd.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libmmd.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/libmpx.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/liboffload.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_avx2.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_avx512.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_avx512_mic.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_avx.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_core.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_def.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_intel_thread.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_mc3.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_mc.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_rt.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_sequential.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_tbb_thread.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_vml_avx2.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_vml_avx512.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_vml_avx512_mic.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_vml_avx.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_vml_cmpt.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_vml_def.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_vml_mc2.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_vml_mc3.dll",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Library/bin/mkl_vml_mc.dll",
+        "path_type": "hardlink"
+      }
+    ],
+    "paths_version": 1
+  },
+  "platform": "win32",
+  "requested_spec": "None",
+  "size": 132438360,
+  "subdir": "win-64",
+  "track_features": "",
+  "url": "https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64/mkl-2017.0.3-0.tar.bz2",
+  "version": "2017.0.3"
+}
