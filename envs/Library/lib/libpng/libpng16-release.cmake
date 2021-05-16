@@ -9,7 +9,6 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set_property(TARGET png APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(png PROPERTIES
   IMPORTED_IMPLIB_RELEASE "${_IMPORT_PREFIX}/lib/libpng16.lib"
-  IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE "C:/Users/user/Documents/GitHub/adaptive_contrrol/adaptive_control/envs\\Library\\lib\\zlib.lib"
   IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/libpng16.dll"
   )
 
@@ -20,7 +19,6 @@ list(APPEND _IMPORT_CHECK_FILES_FOR_png "${_IMPORT_PREFIX}/lib/libpng16.lib" "${
 set_property(TARGET png_static APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(png_static PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "C"
-  IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE "C:/Users/user/Documents/GitHub/adaptive_contrrol/adaptive_control/envs\\Library\\lib\\zlib.lib"
   IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libpng16_static.lib"
   )
 

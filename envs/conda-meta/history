@@ -32,3 +32,23 @@
 +https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64::tk-8.5.18-vc14_0
 +https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64::zlib-1.2.11-vc14_0
 # update specs: ['matplotlib']
+==> 2021-05-15 12:02:40 <==
+# cmd: C:\Users\user\anaconda3\Scripts\conda-script.py install -p C:/Users/user/Documents/GitHub/adaptive_contrrol/adaptive_control/envs opencv -y
+# conda version: 4.9.2
+-https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64::libpng-1.6.30-vc14_1
++defaults/win-64::hdf5-1.8.20-hac2f561_1
++defaults/win-64::icc_rt-2019.0.0-h0cc432a_1
++defaults/win-64::libopencv-3.4.2-h20b85fd_0
++defaults/win-64::libpng-1.6.34-h79bbb47_0
++defaults/win-64::libtiff-4.0.9-h36446d0_2
++defaults/win-64::opencv-3.4.2-py36h40b0b35_0
++defaults/win-64::py-opencv-3.4.2-py36hc319ecb_0
+# update specs: ['opencv']
+==> 2021-05-15 13:25:14 <==
+# cmd: C:\Users\user\anaconda3\Scripts\conda-script.py install -p C:/Users/user/Documents/GitHub/adaptive_contrrol/adaptive_control/envs pillow -y
+# conda version: 4.9.2
++https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64::bzip2-1.0.6-vc14_3
++https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64::freetype-2.5.5-vc14_2
++https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64::olefile-0.44-py36_0
++https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64::pillow-4.2.1-py36_0
+# update specs: ['pillow']
