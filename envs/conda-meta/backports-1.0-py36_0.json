@@ -1,0 +1,47 @@
+{
+  "arch": "x86_64",
+  "build": "py36_0",
+  "build_number": 0,
+  "channel": "https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64",
+  "constrains": [],
+  "date": "2016-12-25",
+  "depends": [
+    "python 3.6*"
+  ],
+  "extracted_package_dir": "C:\\Users\\user\\anaconda3\\pkgs\\backports-1.0-py36_0",
+  "features": "",
+  "files": [
+    "Lib/site-packages/backports/__init__.py",
+    "Lib/site-packages/backports/__pycache__/__init__.cpython-36.pyc",
+    ".nonadmin"
+  ],
+  "fn": "backports-1.0-py36_0.tar.bz2",
+  "license": "BSD",
+  "link": {
+    "source": "C:\\Users\\user\\anaconda3\\pkgs\\backports-1.0-py36_0",
+    "type": 1
+  },
+  "md5": "b5b3ac5b173e8681100fca1a058cce16",
+  "name": "backports",
+  "package_tarball_full_path": "C:\\Users\\user\\anaconda3\\pkgs\\backports-1.0-py36_0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "Lib/site-packages/backports/__init__.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "Lib/site-packages/backports/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink"
+      }
+    ],
+    "paths_version": 1
+  },
+  "platform": "win32",
+  "requested_spec": "None",
+  "size": 2875,
+  "subdir": "win-64",
+  "track_features": "",
+  "url": "https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64/backports-1.0-py36_0.tar.bz2",
+  "version": "1.0"
+}
