@@ -1,32 +1,32 @@
 import socket
+import base64
+from PIL import Image
 import cv2
-import numpy
+from io import BytesIO
+import numpy as np
+def readb64(base64_string):
+    sbuf = BytesIO()
+    sbuf.write(base64.b64decode(base64_string))
+    pimg = Image.open(sbuf)
+    return cv2.cvtColor(np.array(pimg), cv2.COLOR_RGB2BGR)
 
-capture = cv2.VideoCapture(0)
+HOST = '172.20.10.3'
+PORT = 8000
 
-TCP_IP = "localhost"
-TCP_PORT = 8002
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((TCP_IP, TCP_PORT))
-s.listen(True)
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind((HOST, PORT))
+server.listen(10)
 
-conn, addr = s.accept()
-
-ret, frame = capture.read() 
-encode_param=[int(cv2.IMWRITE_JPEG_QUALITY),90]
-
-while ret:
-    result, imgencode = cv2.imencode('.jpg', frame, encode_param)
-    data = numpy.array(imgencode)
-    stringData = data.tostring()
-
-    conn.send( str(len(stringData)).ljust(16));
-    conn.send( stringData );
-
-    ret, frame = capture.read()
-    decimg=cv2.imdecode(data,1)
-    cv2.imshow('SERVER2',decimg)
-    cv2.waitKey(30)
-
-conn.close()
-cv2.destroyAllWindows()
+while True:
+    conn, addr = server.accept()
+    clientMessage = conn.recv(100*1024)
+    print(type(clientMessage))
+    print(len(clientMessage)-64112)
+    print('Client message is:', clientMessage)
+    cvimg = readb64(clientMessage)
+    cv2.imshow('titlle',cvimg)
+    cv2.waitKey()
+    cv2.destroyAllWindows()
+    serverMessage = 'I\'m here!'
+    conn.sendall(serverMessage.encode())
+    conn.close()

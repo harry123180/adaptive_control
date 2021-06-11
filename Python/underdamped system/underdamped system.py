@@ -4,10 +4,13 @@ import mpl_toolkits.axisartist as axisartist
 from  math import *
 #initial conditon
 y_ini = 10 #amplitude (mm)
-damping_ratio = 0.01
-freq_natural= 20 #Hz
+C = 200
+mass = 200
+k_constant = 126318
+freq_natural= sqrt(k_constant/mass) #Hz
+damping_ratio = C/(2*mass*freq_natural)
 freq_damp = freq_natural*sqrt(1-pow(damping_ratio,2))
-y_dot_ini = 200#Tangent slope of amplitude
+y_dot_ini = 5#Tangent slope of amplitude
 t = 0.00 #time
 POINTS = 100
 wave_list = [0] * POINTS
@@ -33,7 +36,8 @@ while(True):
     rowy = row*sin(angle_row)
     wave_list = wave_list[1:] + [A*sin(ct)+B*cos(ct)]
     damped_list = damped_list[1:]+[exp(-1*freq_natural*damping_ratio*t)*(A*sin(cdt)+B*cos(cdt))]
-    print(exp(-1*freq_natural*damping_ratio*t))
+    if(t >=5):
+        print(exp(-1*freq_natural*damping_ratio*t))
     plt.sca(ax1)
 
     plt.cla()

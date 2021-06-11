@@ -1,31 +1,25 @@
 import socket
-import cv2
-import numpy
+import base64
 
-def recvall(sock, count):
-    buf = b''
-    while count:
-        newbuf = sock.recv(count)
-        if not newbuf: return None
-        buf += newbuf
-        count -= len(newbuf)
-    return buf
+HOST = '172.20.10.3'
+PORT = 8000
+clientMessage = ''
 
-TCP_IP = "localhost"
-TCP_PORT = 8002
 
-sock = socket.socket()
-sock.connect((TCP_IP, TCP_PORT))
+while(True):
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client.connect((HOST, PORT))
+    clientMessage = input("Key str")
+    with open("bg.png", "rb") as image2string:
+        converted_string = base64.b64encode(image2string.read())
+    if(clientMessage != 'break'):
+        #client.sendall(clientMessage.encode())
+        client.send(converted_string)
 
-while 1:
-    length = recvall(sock,16)
-    print(type(length))
-    stringData = recvall(sock, int(length))
-    data = numpy.fromstring(stringData, dtype='uint8')
-    decimg=cv2.imdecode(data,1)
+        serverMessage = str(client.recv(1024), encoding='utf-8')
+        print(type(serverMessage))
+        print('Server:', serverMessage)
+    else:
+        break
 
-    cv2.imshow('CLIENT2',decimg)
-    cv2.waitKey(1)
-
-sock.close()
-cv2.destroyAllWindows()
+client.close()
