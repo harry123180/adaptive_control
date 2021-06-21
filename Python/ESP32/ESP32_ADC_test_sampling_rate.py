@@ -1,7 +1,7 @@
 import serial  # 引用pySerial模組
 from time import time
 COM_PORT = 'COM3'  # 指定通訊埠名稱
-BAUD_RATES = 1000000  # 設定傳輸速率
+BAUD_RATES = 115200  # 設定傳輸速率
 ser = serial.Serial(COM_PORT, BAUD_RATES)  # 初始化序列通訊埠
 Sample = 12000#樣本數
 try:
@@ -11,7 +11,7 @@ try:
         while ser.in_waiting:  # 若收到序列資料…
             data_raw = ser.readline()  # 讀取一行
             #data = data_raw.decode()  # 用預設的UTF-8解碼
-            #print('接收到的原始資料：', data_raw)
+            print('接收到的原始資料：', data_raw)
             #print('接收到的資料：', data)
             i+=1
             if (i >= Sample):

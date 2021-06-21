@@ -9,22 +9,22 @@ const uint16_t port = 8090;
 const char * host = "172.20.10.3";
 void taskOne( void * parameter ){
   while(1){
-    Serial.print("使用核心編號：");
-Serial.println(xPortGetCoreID());
+    //Serial.print("使用核心編號：");
+//Serial.println(xPortGetCoreID());
    delay(20);
    val = analogRead(potPin);
   //Serial.print("val  = ");
-  Serial.println(val);
+  //Serial.println(val);
   }
-  Serial.println("Ending task 1");
+  //Serial.println("Ending task 1");
   vTaskDelete( NULL );
 }
  
 void taskTwo( void * parameter){
   while(1){
      WiFiClient client;
- Serial.print("使用核心編號AAAAAAA：");
-        Serial.println(xPortGetCoreID());
+ //Serial.print("使用核心編號AAAAAAA：");
+        //Serial.println(xPortGetCoreID());
     if (!client.connect(host, port)) {
  
         //Serial.println("Connection to host failed");
@@ -34,31 +34,31 @@ void taskTwo( void * parameter){
     }
     client.print(val);
   }
-  Serial.println("Ending task 2");
+  //Serial.println("Ending task 2");
   vTaskDelete( NULL );
 }
  
 void taskThree( void * parameter){
   while(1){
     delay(800);
-    Serial.println("3");
+    //Serial.println("3");
   }
-  Serial.println("Ending task 3");
+  //Serial.println("Ending task 3");
   vTaskDelete( NULL );
 }
  
  
 void setup() {
-  Serial.begin(115200);
+  //Serial.begin(115200);
   //pinMode(potPin,INPUT);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.println("...");
+    //Serial.println("...");
   }
  
-  Serial.print("WiFi connected with IP: ");
-  Serial.println(WiFi.localIP());
+  //Serial.print("WiFi connected with IP: ");
+  //Serial.println(WiFi.localIP());
   delay(1000);
   xTaskCreatePinnedToCore(
   taskOne, //本任務實際對應的Function

@@ -1,4 +1,4 @@
-const int potPin = 13;
+const int potPin = 33;
 int val=0;
 void setup() {
   //pinMode(
