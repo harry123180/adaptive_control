@@ -87,15 +87,16 @@ class AutoEncoder(nn.Module):
         encoded = self.encoder(x)
         decoded = self.decoder(encoded)
         return encoded, decoded
+model = torch.load('C:\\Users\\user\\Documents\\GitHub\\adaptive_contrrol\\adaptive_control\\Python\\NCKU\\autoencoder_1500rpm_ub012_h_0.pkl')
+model.eval()
 
-
-autoencoder = AutoEncoder()
+autoencoder =model# AutoEncoder()
 
 optimizer = torch.optim.Adam(autoencoder.parameters(), lr=LR)
 loss_func = nn.MSELoss()
 
 def list3dto2d(list_3d):
-    print(list_3d)
+    #print(list_3d)
     points=[]
     x=[]
     y=[]
