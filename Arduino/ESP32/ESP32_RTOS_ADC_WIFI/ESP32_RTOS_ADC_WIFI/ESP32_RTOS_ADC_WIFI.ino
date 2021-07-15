@@ -3,10 +3,10 @@
 
 const int potPin = 33;
 int val=0;
-const char* ssid = "兔田株式会社";
-const char* password =  "pekopeko";
+const char* ssid = "iPhone";
+const char* password =  "qqqqqqqq";
 const uint16_t port = 8090;
-const char * host = "10.1.1.10";
+const char * host = "172.20.10.3";
 void taskOne( void * parameter ){
   while(1){
     //Serial.print("使用核心編號：");
@@ -27,8 +27,7 @@ void taskTwo( void * parameter){
         //Serial.println(xPortGetCoreID());
     if (!client.connect(host, port)) {
  
-        //Serial.println("Connection to host failed");
-        
+        Serial.println("Connection to host failed");
         delay(1000);
         //return;
     }
