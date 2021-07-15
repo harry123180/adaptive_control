@@ -11,21 +11,29 @@ contents = 0
 
 def Chart():
     global contents
-    plt.ion()
+    #plt.ion()
+    fig = plt.figure()
     Y = np.zeros(100)
     #print(type(Y))
+    X = np.linspace(0, 100, 100)
     while True:
-        X = np.linspace(0, 2, 100)
-        #print(contents)
-        graph = plt.plot(X, Y)[0]
-        graph.set_ydata(Y)
+
+        plt.ylim((0,4096))
+        plt.xlim((0,100))
+        plt.plot(X, Y)
+        print(X[0],Y[0])
+        #graph.set_ydata(Y)
         Y=np.array(Y).tolist()
         #print(type(Y))
-        Y.insert(0,contents)
+        if(contents==None):
+            Y.insert(0, Y[0])
+        else:
+            Y.insert(0,contents)
         Y.pop()
         np.array(Y)
-        plt.pause(0.01)
         plt.draw()
+        plt.pause(0.01)
+        fig.clear()
 # 建立一個子執行緒
 t = threading.Thread(target = Chart)
 # 執行該子執行緒
@@ -34,7 +42,7 @@ t.start()
 s = socket.socket()
 #10.1.1.10
 #172.20.10.3
-s.bind(('172.20.10.3', 8090))
+s.bind(('10.1.1.10', 8090))
 s.listen(0)
 
 while True:
@@ -44,7 +52,7 @@ while True:
     while True:
         content = client.recv(32)
         contents = con.cvt(content)
-        print(contents)
+        #print(contents)
         if len(content) == 0:
             break
 
