@@ -13,16 +13,19 @@ const uint16_t samping_rate = 1000;
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
-
+const uint8_t sample =100;
+uint16_t data_array[sample];
 //********初期宣告************
 int i =0;
 const uint32_t wait_time = 1000000/samping_rate;
 void taskOne( void * parameter ){
   //task1拿來做數據採樣
   //還要存入陣列
-  while(1){
+while(1){
+   for(int index=0; index<sample;index++){
+   data_array[index] = analogRead(potPin);
    delay(wait_time);
-   val = analogRead(potPin);
+   }
   }
   vTaskDelete( NULL );
 }
