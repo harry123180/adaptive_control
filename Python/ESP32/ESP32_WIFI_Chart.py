@@ -33,7 +33,7 @@ t.start()
 # 主執行緒繼續執行自己的工作
 s = socket.socket()
 
-s.bind(('172.20.10.3', 8090))
+s.bind(('10.1.1.10', 8090))
 s.listen(0)
 
 while True:
