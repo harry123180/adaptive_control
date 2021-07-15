@@ -1,9 +1,9 @@
 #include "WiFi.h"
 
-const char* ssid = "iPhone";//兔田株式会社
-const char* password =  "qqqqqqqq";//pekopeko
+const char* ssid = "兔田株式会社";//兔田株式会社iPhone
+const char* password =  "pekopeko";//pekopekoqqqqqqqq
 const uint16_t port = 8090;
-const char * host = "172.20.10.2";//10.1.1.10
+const char * host = "10.1.1.10";//10.1.1.10/172.20.10.2
 
 //參考網址:https://www.qutaojiao.com/6252.html
 /* *保存数据的结构**/
@@ -65,7 +65,7 @@ void sendTask1( void * parameter )
       //data1.counter = data1.counter + 1;
     }
     /*我们在这里延迟，以便receiveTask有机会接收数据 */
-    delay(10);
+    delay(1);
   }
   vTaskDelete( NULL );
 }
@@ -81,7 +81,7 @@ void receiveTask( void * parameter )
     WiFiClient client;
     if (!client.connect(host, port)) {
         Serial.print("Connection to host failed");
-        delay(1000);
+        delay(1);
     }
         //                              }
     /* 从队列接收数据 */

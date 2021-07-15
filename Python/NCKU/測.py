@@ -1,4 +1,18 @@
-a = [0.17203699052333832, 0.14452369511127472, -0.31027060747146606, -0.011454522609710693]
+import matplotlib.pyplot as plt
+import numpy as np
 
-for b in a:
-    print(b)
+x = np.linspace(0, 10, 100)
+y = np.cos(x)
+
+fig = plt.figure()
+
+for p in range(50):
+    p=3
+    updated_x=x+p
+    updated_y=np.cos(x)
+    plt.plot(updated_x,updated_y)
+    plt.draw()
+    x=updated_x
+    y=updated_y
+    plt.pause(0.2)
+    fig.clear()

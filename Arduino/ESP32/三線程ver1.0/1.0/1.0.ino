@@ -7,10 +7,10 @@
 const int potPin = 33;
 int val=0;
 int i =0;
-const char* ssid = "iPhone";//兔田株式会社
-const char* password =  "qqqqqqqq";//pekopeko
+const char* ssid = "兔田株式会社";//兔田株式会社
+const char* password =  "pekopeko";//pekopeko
 const uint16_t port = 8090;
-const char * host = "172.20.10.3";//10.1.1.10
+const char * host = "10.1.1.10";//172.20.10.3
 
 //****typedef struct 新用法，創建一個新的資料結構 自定義
 typedef struct{int sender;

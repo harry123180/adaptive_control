@@ -39,7 +39,7 @@ void sendTask1( void * parameter )
   /* sender 1的id为1 */
   data1.sender = 1;
   data1.counter = 1;
-  for(;;){
+  while(true){
     Serial.println("sendTask1 is sending data");
     /* 将数据发送到队列前面 */
     xStatus = xQueueSendToFront( xQueue, &data1, xTicksToWait );
@@ -76,7 +76,7 @@ void receiveTask( void * parameter )
   BaseType_t xStatus;
   /* 阻止任务的时间，直到数据可用*/const TickType_t xTicksToWait = pdMS_TO_TICKS(100);
   Data data;
-  for(;;){
+  while(1){
     /* 从队列接收数据 */
     xStatus = xQueueReceive( xQueue, &data, xTicksToWait );
     /* 检查接收是否正常 */if(xStatus == pdPASS){
