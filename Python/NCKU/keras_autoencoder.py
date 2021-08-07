@@ -29,11 +29,17 @@ import numpy as np
 
 x_train = x_train.astype('float32') / 255.
 x_test = x_test.astype('float32') / 255.
+print(type(x_train))
+print(len(x_train))
+print(x_train.dtype)
+print(x_train.size)
+print(x_train.shape)
+print(x_train.ndim)
 x_train = np.reshape(x_train, (len(x_train), 28, 28, 1))
 x_test = np.reshape(x_test, (len(x_test), 28, 28, 1))
 
 from keras.callbacks import TensorBoard
-
+"""
 autoencoder.fit(x_train, x_train,
                 epochs=50,
                 batch_size=128,
@@ -41,7 +47,7 @@ autoencoder.fit(x_train, x_train,
                 validation_data=(x_test, x_test),
                 callbacks=[TensorBoard(log_dir='/tmp/autoencoder')])
 decoded_imgs = autoencoder.predict(x_test)
-
+"""
 n = 10
 plt.figure(figsize=(20, 4))
 for i in range(1, n + 1):

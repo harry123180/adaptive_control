@@ -40,7 +40,7 @@ feature_names=['rms_x_b','rms_y_b','rms_z_b','octave_x_b_8','octave_y_b_8','octa
 # Data Loader for easy mini-batch return in training, the image batch shape will be (50, 1, 28, 28)
 customdataset=CustomDataset(file_path,feature_names)
 train_loader = Data.DataLoader(dataset=customdataset, batch_size=BATCH_SIZE, shuffle=False)
-
+print(train_loader)
 
 #label
 all_df=pd.read_excel(file_path)
@@ -63,8 +63,7 @@ class AutoEncoder(nn.Module):
         self.encoder = nn.Sequential(
             nn.Linear(len(feature_names), 128),
 
-            #nn.Conv1d(128, 64, 3, stride=2),
-            #nn.MaxPool1d(3, stride=2),
+
             nn.Tanh(),
             nn.Linear(128, 64),
             nn.Tanh(),
@@ -88,6 +87,7 @@ class AutoEncoder(nn.Module):
         decoded = self.decoder(encoded)
         return encoded, decoded
 model = torch.load('C:\\Users\\user\\Documents\\GitHub\\adaptive_contrrol\\adaptive_control\\Python\\NCKU\\autoencoder_1500rpm_ub012_h_0.pkl')
+
 model.eval()
 
 autoencoder =model# AutoEncoder()

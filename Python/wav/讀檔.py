@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # 讀檔
-f = wave.open(r"C:\Users\user\Downloads\5pywp-muov7.wav", "rb")
+f = wave.open(r"C:\\Users\\user\\Documents\\GitHub\\adaptive_contrrol\\adaptive_control\\Python\\wav\\sweep.wav", "rb")
 
 # 格式資訊
 # (nchannels, sampwidth, framerate, nframes, comptype, compname)
