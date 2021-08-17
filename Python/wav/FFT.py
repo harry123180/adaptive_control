@@ -4,7 +4,7 @@ import time
 import wave
 import matplotlib.pyplot as plt
 
-
+#ENV = test conda py3.8
 # open stream
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
