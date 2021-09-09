@@ -1,6 +1,6 @@
 import serial  # 引用pySerial模組
 from time import time
-COM_PORT = 'COM3'  # 指定通訊埠名稱
+COM_PORT = 'COM15'  # 指定通訊埠名稱
 BAUD_RATES = 115200  # 設定傳輸速率
 ser = serial.Serial(COM_PORT, BAUD_RATES)  # 初始化序列通訊埠
 Sample = 12000#樣本數
