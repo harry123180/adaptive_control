@@ -9,6 +9,7 @@ const int potPin = 33;
 int val=0;
 const char* ssid = "iPhone";
 const char* password =  "qqqqqqqq";
+String DATA;
  
 const uint16_t port = 8090;
 const char * host = "172.20.10.3";
@@ -44,9 +45,17 @@ void loop()
     //Serial.println("Connected to server successful!");
     
     //client.print("Hello from ESP32!");
+    
+    
+    for(int i =0 ;i<100;i++){
     val = analogRead(potPin);
-    Serial.println(val);
-    client.print(val);
+    if(i <99)
+    DATA=DATA +val+' ';  
+    else if (i>98)
+    DATA=DATA +val;
+    }
+    Serial.println(DATA);
+    client.println(DATA);
     //Serial.println("Disconnecting...");
     //client.stop();
  

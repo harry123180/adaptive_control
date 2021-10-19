@@ -38,7 +38,7 @@ def soundPlot(stream):
     ax2.cla()
     ax2.plot(fftTime,fftData)
     ax2.grid()
-    ax2.axis([0,5000,0,10**6])
+    ax2.axis([0,22000,0,10**6])
     plt.pause(0.0001)
     print("took %.02f ms"%((time.time()-t1)*1000))
     # use quadratic interpolation around the max
@@ -62,9 +62,10 @@ if __name__=="__main__":
     ax1 = fig.add_subplot(211)
     ax2 = fig.add_subplot(212)
 
-    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+    #for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+    while(True):
         soundPlot(stream)
-
+    print("阿")
     stream.stop_stream()
     stream.close()
     p.terminate()
