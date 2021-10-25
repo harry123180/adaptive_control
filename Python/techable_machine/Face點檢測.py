@@ -1,7 +1,7 @@
 import cv2
 import mediapipe as mp
 import time
-
+#env = VE
 cap = cv2.VideoCapture(0)
 pTime = 0
 
