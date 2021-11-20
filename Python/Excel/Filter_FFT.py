@@ -3,8 +3,13 @@ import numpy as np
 from scipy import signal
 from openpyxl import load_workbook
 from matplotlib import pyplot as plt
-Y_current = load_workbook('C:\\Users\\user\\Desktop\\研究\\研究紀錄By泓舉\\7碩一上第七周\\cncdata2.xlsx')['工作表2']['F26':'F63121']
-y_data = [ int(c.value) for row in Y_current for c in row]
+wb = load_workbook('C:\\Users\\user\\Desktop\\研究\\研究紀錄By泓舉\\8碩一上第八周\\hu_1.xlsx')
+sheet = wb['sheet1']
+Y_current = sheet['A2':'A20000']
+y_data=[]
+for row in Y_current:
+    for c in row:
+        y_data.append(float(c.value))
 x_data = [i for i in range(0, len(y_data))]
 def butter_highpass(cutoff, fs, order=5):
     nyq = 0.5 * fs
@@ -38,11 +43,12 @@ y_data = np.array(y_data)
 x_data = np.array(x_data)
 #將訊號清到剩下加工區段
 #13140,47530
-y_data = ROI_list(y_data,13140,13140+2048)
-x_data = ROI_list(x_data,13140,13140+2048)
+t = 4000
+y_data = ROI_list(y_data,t,t+2048)
+x_data = ROI_list(x_data,t,t+2048)
 
-filted = butter_highpass_filter(y_data,7,1000)
-#filted = butter_lowpass_filter(filted,50,1000)
+filted = butter_highpass_filter(y_data,5.47,1000)#高通
+filted = butter_lowpass_filter(filted,270,1000)#低通
 #創建畫布
 #plt.ion()
 fig = plt.figure(figsize=(10,8))
