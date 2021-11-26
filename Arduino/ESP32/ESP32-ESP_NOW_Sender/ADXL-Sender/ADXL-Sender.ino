@@ -1,31 +1,24 @@
-/*
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp-now-esp32-arduino-ide/
-  
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
-  
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-*/
 
 #include <esp_now.h>
 #include <WiFi.h>
+#include <Adafruit_Sensor.h>    // Adafruit  sensor library
+#include <Adafruit_ADXL345_U.h>  // ADXL345 library
+ 
+Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified();   // ADXL345 Object
 
 // REPLACE WITH YOUR RECEIVER MAC Address
 uint8_t broadcastAddress[] = {0x7C, 0x9E, 0xBD, 0x09, 0xE8, 0x00};
 
-// Structure example to send data
-// Must match the receiver structure
+const int buffer_size = 10;
 typedef struct struct_message {
-  char a[32];
-  int b;
-  float c;
-  bool d;
+  double x[buffer_size];
+  double y[buffer_size];
+  double z[buffer_size];//設定自訂義的數據包格式
+ 
 } struct_message;
 
 // Create a struct_message called myData
-struct_message myData;
+struct_message myData; //宣告一個自訂義數據包格式的變量
 
 // callback when data is sent
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
@@ -55,7 +48,11 @@ void setup() {
   memcpy(peerInfo.peer_addr, broadcastAddress, 6);
   peerInfo.channel = 0;  
   peerInfo.encrypt = false;
-  
+    if(!accel.begin())   // if ASXL345 sensor not found
+  {
+    Serial.println("ADXL345 not detected");
+    while(1);
+  }
   // Add peer        
   if (esp_now_add_peer(&peerInfo) != ESP_OK){
     Serial.println("Failed to add peer");
@@ -65,11 +62,17 @@ void setup() {
  
 void loop() {
   // Set values to send
-  strcpy(myData.a, "THIS IS A CHAR");
-  myData.b = random(1,20);
-  myData.c = 1.2;
-  myData.d = false;
-  
+  //strcpy(myData.a, "THIS IS A CHAR");
+  //myData.b = random(1,20);
+  //myData.c = 1.2;
+  //myData.d = false;
+  for(int i =0;i<buffer_size;i++){
+    sensors_event_t event;
+    accel.getEvent(&event);
+    myData.x[i]=event.acceleration.x;
+    myData.y[i]=event.acceleration.y;
+    myData.z[i]=event.acceleration.z;
+  }
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
    
