@@ -11,14 +11,13 @@
 
 #include <esp_now.h>
 #include <WiFi.h>
-
+const int buffer_size=10;
 // Structure example to receive data
 // Must match the sender structure
 typedef struct struct_message {
-    char a[32];
-    int b;
-    float c;
-    bool d;
+    double x[buffer_size];
+    double y[buffer_size];
+    double z[buffer_size];
 } struct_message;
 
 // Create a struct_message called myData
@@ -27,17 +26,13 @@ struct_message myData;
 // callback function that will be executed when data is received
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   memcpy(&myData, incomingData, sizeof(myData));
-  //Serial.print("Bytes received: ");
-  //Serial.println(len);
-  //Serial.print("Char: ");
-  //Serial.println(myData.a);
-  //Serial.print("Int: ");
-  Serial.println(myData.b);
-  //Serial.print("Float: ");
-  //Serial.println(myData.c);
-  //Serial.print("Bool: ");
-  //Serial.println(myData.d);
-  //Serial.println();
+  for (int i=0 ; i<buffer_size;i++){
+  Serial.print(myData.x[i]);
+  Serial.print(" ");
+  Serial.print(myData.y[i]);
+  Serial.print(" ");
+  Serial.println(myData.z[i]);
+  }
 }
  
 void setup() {
