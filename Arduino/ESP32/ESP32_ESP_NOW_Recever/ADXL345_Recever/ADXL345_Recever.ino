@@ -18,6 +18,7 @@ typedef struct struct_message {
     double x[buffer_size];
     double y[buffer_size];
     double z[buffer_size];
+    int count;
 } struct_message;
 
 // Create a struct_message called myData
@@ -31,7 +32,9 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   Serial.print(" ");
   Serial.print(myData.y[i]);
   Serial.print(" ");
-  Serial.println(myData.z[i]);
+  Serial.print(myData.z[i]);
+  Serial.print(" ");
+  Serial.println(myData.count);
   }
 }
  
