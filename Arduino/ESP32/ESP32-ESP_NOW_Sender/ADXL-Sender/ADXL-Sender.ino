@@ -5,7 +5,7 @@
 #include <Adafruit_ADXL345_U.h>  // ADXL345 library
  
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified();   // ADXL345 Object
-
+long int count =0;
 // REPLACE WITH YOUR RECEIVER MAC Address
 uint8_t broadcastAddress[] = {0x7C, 0x9E, 0xBD, 0x09, 0xE8, 0x00};
 
@@ -14,6 +14,7 @@ typedef struct struct_message {
   double x[buffer_size];
   double y[buffer_size];
   double z[buffer_size];//設定自訂義的數據包格式
+  int count;
  
 } struct_message;
 
@@ -72,7 +73,9 @@ void loop() {
     myData.x[i]=event.acceleration.x;
     myData.y[i]=event.acceleration.y;
     myData.z[i]=event.acceleration.z;
+    
   }
+  myData.count+=1;
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
    
