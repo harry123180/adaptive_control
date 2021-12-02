@@ -2,7 +2,8 @@
   Rui Santos
   Complete project details at https://randomnerdtutorials.com  
 *********/
-
+//set SDA =ESP32 D21
+//set SCL =ESP32 D22
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
