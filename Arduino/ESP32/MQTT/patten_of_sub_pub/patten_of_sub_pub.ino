@@ -12,7 +12,7 @@ const char* mqtt_server = "lwcjacky.myds.me";//免註冊MQTT伺服器
 const unsigned int mqtt_port = 1883;
 #define MQTT_USER               "test"             //本案例未使用
 #define MQTT_PASSWORD           "vcAnn8GZ"         //本案例未使用
-WiFiClient espClient;
+WiFiClient espClient; 
 PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
