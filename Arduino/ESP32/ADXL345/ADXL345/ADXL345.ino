@@ -3,10 +3,10 @@
 #include <Adafruit_ADXL345_U.h>  // ADXL345 library
 
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified();   // ADXL345 Object
-
+ sensors_event_t event;
 void setup() {
 
-  Serial.begin(9600);
+  Serial.begin(115200);
   if(!accel.begin())   // if ASXL345 sensor not found
   {
     Serial.println("ADXL345 not detected");
@@ -16,8 +16,8 @@ void setup() {
 }
 
 void loop() {
+ //sensors_event_t event;
 
- sensors_event_t event;
  accel.getEvent(&event);
  //Serial.print("X: ");
  Serial.print(event.acceleration.x);
@@ -29,6 +29,6 @@ void loop() {
  Serial.print(event.acceleration.z);
  Serial.println("  ");
  //Serial.println("m/s^2 ");
- delay(5);
+ delay(1);
 
 }
