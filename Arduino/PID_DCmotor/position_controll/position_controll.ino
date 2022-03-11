@@ -1,6 +1,6 @@
 #include <TimerOne.h>
 #define encoder_1A  2
-#define encoder_1B  3
+#define encoder_1B  4
 #define LEFT1 5
 #define LEFT2 6
 int cmd_indx = 0;
@@ -9,18 +9,20 @@ char cmd[10];
 char *name_ = NULL;
 int error1=0,err1=0,ie1=0,de1=0,u1=0;//誤差
 float ki1,kd1,f1;
-
+volatile long time_indx = 0;
 float kp1;
-int set_position=0;//位置設定值
+volatile long set_position=0;//位置設定值
 float st1;
 float ua1=0;//輸出值
 volatile long Pos1 = 0;//1號實際值
 volatile long Pos1last = 0;//儲存1號上次的實際值
-float dt = 0.15;//時間   
+float dt = 0.001;//時間   
 float fac = 3/(dt*780);
 void setup() {
-  kp1=0.58;
-  ki1=0.042,kd1=0.12,f1=0.45;
+  kp1=0.66;
+  //kp1=0.66;
+  ki1=0.001,kd1=0.08,f1=0.47;
+  //ki1=0.042,kd1=0.11,f1=0.45;
 pinMode(encoder_1A, INPUT); 
 digitalWrite(encoder_1A, HIGH);       // turn on pull-up resistor
 pinMode(encoder_1B, INPUT); 
@@ -29,7 +31,7 @@ attachInterrupt(digitalPinToInterrupt(2), doEncoder1, CHANGE);  // enconder pin 
 Serial.begin (115200);
 pinMode(LEFT1, OUTPUT);
 pinMode(LEFT2, OUTPUT);
-Timer1.initialize(150000);    // 0.15 sec interrupt once
+Timer1.initialize(1000);    // 0.15 sec interrupt once
 Timer1.attachInterrupt(TimerSR); 
 }
 void TimerSR(void){
@@ -46,17 +48,13 @@ void TimerSR(void){
       Pos1last = Pos1last+30000;
     }
   motor_control(u1);
+  time_indx++;
+  if(time_indx%10==0){
   Serial.print(set_position);
   Serial.print(" ");
-  Serial.print(kp1);
-  Serial.print(" ");
-  Serial.print(ki1);
-  Serial.print(" ");
-  Serial.print(kd1);
-  Serial.print(" ");
-  Serial.print(u1);
-  Serial.print(" ");
   Serial.println(Pos1);
+  }
+  if(time_indx>100000)time_indx=0;
 }
 void loop() {
 if (Serial.available()) {
