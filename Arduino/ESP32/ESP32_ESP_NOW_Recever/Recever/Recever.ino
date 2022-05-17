@@ -16,8 +16,8 @@
 // Must match the sender structure
 typedef struct struct_message {
     //char a[32];
-    //int b;
-    String b;
+    float b;
+    //String b;
     //float c;
     //bool d;
 } struct_message;

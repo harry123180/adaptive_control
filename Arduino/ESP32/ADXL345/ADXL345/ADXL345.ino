@@ -3,7 +3,7 @@
 #include <Adafruit_ADXL345_U.h>  // ADXL345 library
 
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified();   // ADXL345 Object
- sensors_event_t event;
+sensors_event_t event;
 void setup() {
 
   Serial.begin(115200);

@@ -9,7 +9,6 @@ void IRAM_ATTR onTimer() {
   portENTER_CRITICAL_ISR(&timerMux);
   interruptCounter++;
   portEXIT_CRITICAL_ISR(&timerMux);
- 
 }
  
 void setup() {
@@ -24,7 +23,6 @@ void setup() {
   我們將得到一個頻率為 1 MHz 的信號，該信號將使定時器計數器每秒增加 1 000 000 次。
   */
   timer = timerBegin(0, 80, true);
-  
   timerAttachInterrupt(timer, &onTimer, true);
   timerAlarmWrite(timer, 1000000, true);
   timerAlarmEnable(timer);

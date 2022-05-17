@@ -9,7 +9,7 @@ const char* password = "datadata";
 // Add your MQTT Broker IP address, example:
 //const char* mqtt_server = "192.168.1.144";
 const char* mqtt_server = "lwcjacky.myds.me";//免註冊MQTT伺服器
-const unsigned int mqtt_port = 1883;
+const unsigned int mqtt_port = 18084;
 #define MQTT_USER               "test"             //本案例未使用
 #define MQTT_PASSWORD           "vcAnn8GZ"         //本案例未使用
 WiFiClient espClient; 
@@ -125,6 +125,6 @@ void loop() {
     dtostrf(temperature, 1, 2, tempString);
     Serial.print("Temperature: ");
     Serial.println(tempString);
-    client.publish("Try", tempString);
+    client.publish("test_node", tempString);
   }
 }

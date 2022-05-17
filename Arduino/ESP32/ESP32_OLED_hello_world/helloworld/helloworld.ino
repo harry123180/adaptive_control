@@ -6,7 +6,7 @@
 //set SCL =ESP32 D22
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+#include <Adafruit_SSD1306.h>  
 int i = 0;
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -24,7 +24,7 @@ void setup() {
   delay(2000);
   display.clearDisplay();
 
-  display.setTextSize(1);
+  display.setTextSize(4);
   display.setTextColor(WHITE);
   
   // Display static text
@@ -36,8 +36,10 @@ void loop() {
   i++;
   if(i>10000)i=0;
   display.clearDisplay();
-  display.setCursor(0, 10);
-  display.println("RMS="+String(i));
+  display.setCursor(50, 10);
+  display.println(String(i));
+  //display.setCursor(30, 10);
+  //display.println("CM");
   display.display();
   delay(1000);
   

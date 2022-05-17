@@ -7,14 +7,14 @@
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified();   // ADXL345 Object
 long int count =0;
 // REPLACE WITH YOUR RECEIVER MAC Address
-uint8_t broadcastAddress[] = {0x7C, 0x9E, 0xBD, 0x09, 0xE8, 0x00};
+uint8_t broadcastAddress[] = {0x94,0xB9,0x7E,0xE6,0x36,0xB0};//{0x7C, 0x9E, 0xBD, 0x09, 0xE8, 0x00};
 
 const int buffer_size = 10;
 typedef struct struct_message {
   double x[buffer_size];
   double y[buffer_size];
   double z[buffer_size];//設定自訂義的數據包格式
-  int count;
+  //int count;
  
 } struct_message;
 
@@ -23,8 +23,8 @@ struct_message myData; //宣告一個自訂義數據包格式的變量
 
 // callback when data is sent
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
-  Serial.print("\r\nLast Packet Send Status:\t");
-  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+  //Serial.print("\r\nLast Packet Send Status:\t");
+  //Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
 }
  
 void setup() {
@@ -36,7 +36,7 @@ void setup() {
 
   // Init ESP-NOW
   if (esp_now_init() != ESP_OK) {
-    Serial.println("Error initializing ESP-NOW");
+    //Serial.println("Error initializing ESP-NOW");
     return;
   }
 
@@ -51,12 +51,12 @@ void setup() {
   peerInfo.encrypt = false;
     if(!accel.begin())   // if ASXL345 sensor not found
   {
-    Serial.println("ADXL345 not detected");
+    //Serial.println("ADXL345 not detected");
     while(1);
   }
   // Add peer        
   if (esp_now_add_peer(&peerInfo) != ESP_OK){
-    Serial.println("Failed to add peer");
+    //Serial.println("Failed to add peer");
     return;
   }
 }
@@ -73,19 +73,23 @@ void loop() {
     myData.x[i]=event.acceleration.x;
     myData.y[i]=event.acceleration.y;
     myData.z[i]=event.acceleration.z;
-    
+    Serial.print(myData.x[i]);
+    Serial.print(" ");
+    Serial.print(myData.y[i]);
+    Serial.print(" ");
+    Serial.println(myData.z[i]);
   }
-  myData.count+=1;
+  //myData.count+=1;
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
    
   if (result == ESP_OK) {
     
-    Serial.println("Sent with success");
-    
+    //Serial.println("Sent with success");
+
   }
   else {
-    Serial.println("Error sending the data");
+    //Serial.println("Error sending the data");
   }
   delay(1);
 }
