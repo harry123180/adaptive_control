@@ -2,7 +2,7 @@
 #include "FFT.h"
 //FFT 必須的變數
 #define FFT_N 1024 // Must be a power of 2
-#define TOTAL_TIME 1.024 // This is equal to FFT_N/sampling_freq
+#define TOTAL_TIME 0.0512 // This is equal to FFT_N/sampling_freq
 float fft_input[FFT_N];
 float fft_output[FFT_N];
 float max_magnitude = 0;
@@ -29,7 +29,7 @@ void taskOne( void * parameter ){
     //Serial.println("GGG");
         fft_config_t *real_fft_plan = fft_init(FFT_N, FFT_REAL, FFT_FORWARD, fft_input, fft_output);
         if(flag){
-          Serial.println("GGG");
+          //Serial.println("GGG");
           flag = false;
           
           for (int k = 0 ; k < FFT_N ; k++)
@@ -39,15 +39,15 @@ void taskOne( void * parameter ){
             //The real part of a magnitude at a frequency is followed by the corresponding imaginary part in the output
             float mag = sqrt(pow(real_fft_plan->output[2*k],2) + pow(real_fft_plan->output[2*k+1],2))/1;
             float freq = k*1.0/TOTAL_TIME;
-            //sprintf(print_buf,"%f Hz : %f", freq, mag);
+            //sprintf(print_buf,"%1f", freq);
             //Serial.println(print_buf);
             if(mag > max_magnitude){
                 max_magnitude = mag;
                 fundamental_freq = freq;
             }     
           }
-          sprintf(print_buf,"Fundamental Freq : %f Hz\t Mag: %f g\n", fundamental_freq, (max_magnitude/10000)*2/FFT_N);
-          Serial.println(print_buf);
+          //sprintf(print_buf,"Fundamental Freq : %f Hz\t Mag: %f g\n", fundamental_freq, (max_magnitude/10000)*2/FFT_N);
+          //Serial.println(print_buf);
           
           flag = false;//將fft_sginal填充完畢 flag復位     
         
@@ -65,7 +65,7 @@ void IRAM_ATTR onTimer() {
 
   if(interruptCounter>FFT_N){
     interruptCounter=0;
-    Serial.println("Reset Sampling Flag");
+    //Serial.println("Reset Sampling Flag");
     flag = true; //把flag打開 通知fft可以進行了
   }
   portEXIT_CRITICAL_ISR(&timerMux);
@@ -77,7 +77,7 @@ void setup() {
   //為了達到指定sampling rate//
   timer = timerBegin(0, 80, true);
   timerAttachInterrupt(timer, &onTimer, true);
-  timerAlarmWrite(timer, 1000, true);
+  timerAlarmWrite(timer, 60, true);
   timerAlarmEnable(timer);
   //
   //Task宣告及初期設定
