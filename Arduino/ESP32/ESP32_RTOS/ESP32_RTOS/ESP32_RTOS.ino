@@ -50,12 +50,12 @@ void setup() {
   LED2_OFF;
   delay(1000);
   xTaskCreate(
-              taskOne,          /*任务函数*/
-              "TaskOne",        /*带任务名称的字符串*/
-              10000,            /*堆栈大小，单位为字节*/
-              NULL,             /*作为任务输入传递的参数*/
-              1,                /*任务的优先级*/
-              NULL);            /*任务句柄*/
+              taskOne,          /*任務函數*/
+              "TaskOne",        /*任務名稱的字符串*/
+              10000,            /*堆棧大小，單位為Byte*/
+              NULL,             /*任務輸入的參數*/
+              1,                /*任務的優先級*/
+              NULL);            /*任務句柄*/
   xTaskCreate(
               taskTwo,          /* Task function. */
               "TaskTwo",        /* String with name of task. */
