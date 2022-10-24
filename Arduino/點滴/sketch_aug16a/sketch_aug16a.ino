@@ -18,7 +18,11 @@ void setup()
 void loop()
 { 
       pos = map(analogRead(36),0,4095,0,180);
-      
-      Serial.println(analogRead(39));
+      int total=0;
+      for (int i=0;i<10;i++){
+        total = total+analogRead(39);
+        delay(10);
+      }
+      Serial.println(total/10);
      delay(15);
 }

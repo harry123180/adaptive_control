@@ -1,4 +1,3 @@
-
 #include <esp_now.h>
 #include <WiFi.h>
 #include <Adafruit_Sensor.h>    // Adafruit  sensor library
@@ -7,7 +6,7 @@
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified();   // ADXL345 Object
 long int count =0;
 // REPLACE WITH YOUR RECEIVER MAC Address
-uint8_t broadcastAddress[] = {0x94,0xB9,0x7E,0xE6,0x36,0xB0};//{0x7C, 0x9E, 0xBD, 0x09, 0xE8, 0x00};
+uint8_t broadcastAddress[] = {0xC4,0x4F,0x33,0x7C,0x56,0x45};//{0x7C, 0x9E, 0xBD, 0x09, 0xE8, 0x00};
 
 const int buffer_size = 10;
 typedef struct struct_message {
