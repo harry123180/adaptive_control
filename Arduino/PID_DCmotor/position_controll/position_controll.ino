@@ -2,7 +2,7 @@
 #define encoder_1A  2
 #define encoder_1B  4
 #define LEFT1 5
-#define LEFT2 6
+#define LEFT2 4
 int cmd_indx = 0;
 String str;
 char cmd[10];
