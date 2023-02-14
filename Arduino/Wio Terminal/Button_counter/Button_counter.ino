@@ -7,7 +7,7 @@ void setup() {
   tft.setRotation(3);
   tft.fillScreen(TFT_BLACK); //Black background
   Serial.begin(115200);
-  tft.setFreeFont(&FreeSansBoldOblique12pt7b); //select Free, Sans, Bold, Oblique, 12pt.
+  tft.setFreeFont(&FreeSansBoldOblique24pt7b); //select Free, Sans, Bold, Oblique, 12pt.
   
   pinMode(WIO_5S_UP, INPUT_PULLUP);
   pinMode(WIO_5S_DOWN, INPUT_PULLUP);
@@ -24,7 +24,7 @@ void setup() {
  */
 }
 void loop() {
-    tft.fillScreen(TFT_BLACK); //Black background
+   tft.fillScreen(TFT_BLACK); //Black background
    tft.drawString(String(count),70,80);//prints string at (70,80)
    //tft.fillScreen(TFT_BLACK); //Black background
    if (digitalRead(WIO_5S_UP) == LOW) {
